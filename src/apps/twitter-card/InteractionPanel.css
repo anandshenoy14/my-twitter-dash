@@ -1,0 +1,13 @@
+.interactions {
+    position: absolute;
+    left: 0px;
+    bottom: 50px;
+    border-top: 1px solid #ddd;
+    width: 100%;
+}
+.interactions ul {
+    list-style-type: none;
+}
+.interactions li {
+    display: inline;
+}
