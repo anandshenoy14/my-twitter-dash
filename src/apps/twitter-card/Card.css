@@ -1,11 +1,12 @@
 .cardContainer {
-    width: 500px;
-    height: 250px;
+    max-width: 500px;
+    height: 220px;
     border: 1px solid #efefef;
     border-radius: 4px;
     margin: 10px;
     padding: 10px;
     box-shadow: -1px 1px 5px 0px #EDEDED;
+    position: relative;
 }
 .profile {
     width: 50px;
@@ -13,5 +14,19 @@
     border-radius: 25px;
     border: 1px solid #ccc;
     margin-right: 10px;
-    background-size: contain;
+    background-position: bottom;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.interactionPanel {
+    position: absolute;
+    bottom: 15px;
+    left: 0px;
+    padding : 4px 8px;
+}
+.interaction{
+    margin: 0 16px;
+}
+.myIcon{
+    margin-right: 4px;
 }

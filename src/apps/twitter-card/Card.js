@@ -8,22 +8,13 @@ class Card extends React.Component{
             super(props)
         }
         componentWillMount(){
-            console.log('will mount called!');
         }
         componentDidMount(){
-            window.addEventListener('load',function(e){
-                console.log('window load completed');
-                // if(feather){
-                //     console.log('feather initialized!');
-                //     feather.replace();
-                // }
-            });
+            
         }
         componentDidUpdate(){
-            console.log('update called');
         }
         shouldComponentUpdate(){
-            console.log('re-render called');
         }
         render(){
             var style = {
@@ -36,7 +27,7 @@ class Card extends React.Component{
                     <UserPanel user={this.props.card.user} date={this.props.card.postedDate}></UserPanel>
                 </div>
                 <Message message={this.props.card.message}></Message>
-                <InteractionPanel interactions={this.props.interactions}></InteractionPanel>
+                <InteractionPanel interactions={this.props.card.interactions}></InteractionPanel>
             </div>)
         }
 }

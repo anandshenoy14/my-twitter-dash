@@ -6,9 +6,7 @@ import express from 'express'
 import React from 'react'
 import ReactDOM from 'react-dom'
 import ReactDOMServer from 'react-dom/server'
-
-import App from '../src/apps/simple-react-app/App'
-import Card from '../src/apps/twitter-card/Card'
+import Cards from '../src/apps/twitter-card/Cards'
 const PORT = 8080
 const app = express()
 
@@ -20,12 +18,12 @@ const serverRenderer = (req, res, next) => {
       console.error(err)
       return res.status(500).send('An error occurred')
     }
-    request('http://localhost:3000/cards', function (error, response, body) {
+    request('http://localhost:4000/cards?_limit=4&_start=0', function (error, response, body) {
             console.log('error:', error); // Print the error if one occurred
             console.log('statusCode:', response && response.statusCode); // Print the response status code if a response was received
             console.log('body:', body); // Print the HTML for the Google homepage.
             let resp= JSON.parse(body);
-            let newData = data.replace('<div id="root"></div>',`<div id="root"><script>window.initialData = ${body}</script>${ReactDOMServer.renderToString(<Card card={resp[0]}/>)}</div>`);
+            let newData = data.replace('<div id="root"></div>',`<div id="root"><script>window.initialData = ${body}</script>${ReactDOMServer.renderToString(<Cards cards={resp}/>)}</div>`);
             return res.send(newData);
     });
     // return res.send(`<div id="root">${ReactDOMServer.renderToString(<Card />)}</div>`
